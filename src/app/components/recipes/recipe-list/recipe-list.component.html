@@ -4,22 +4,18 @@
   </div>
 </div>
 <hr />
-<div class="row">
-  <div class="col-xs-12">
-    <a href="#" class="list-group-item clearfix" *ngFor="let recipe of recipes">
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-        <p class="list-group-item-text">{{ recipe.description }}</p>
+
+<div class="card mb-3" style="max-width: 540px">
+  <a href="#" class="row g-0" *ngFor="let recipe of recipes">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.name }}</h5>
+        <p class="card-text">{{ recipe.description }}</p>
       </div>
-      <span class="pull-right">
-        <img
-          [src]="recipe.imagePath"
-          alt="{{ recipe.name }}"
-          class="img-responsive"
-          style="max-height: 50px"
-        />
-      </span>
-    </a>
-    <app-recipe-item></app-recipe-item>
-  </div>
+    </div>
+    <div class="col-md-4">
+      <img [src]="recipe.imagePath" class="img-fluid rounded-end" alt="..." />
+    </div>
+  </a>
 </div>
+<app-recipe-item></app-recipe-item>
