@@ -7,8 +7,9 @@
 
 <div class="card mb-3" style="max-width: 540px">
   <app-recipe-item
-    *ngFor="let recipeElement of recipes"
+    *ngFor="let recipeElement of recipes; let i = index"
     [recipe]="recipeElement"
+    [index]="i"
     (recipeSelected)="onRecipeSelected(recipeElement)"
   ></app-recipe-item>
 </div>

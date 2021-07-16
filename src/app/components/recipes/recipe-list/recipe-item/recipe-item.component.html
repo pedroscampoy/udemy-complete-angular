@@ -1,11 +1,15 @@
 <a href="#" class="row g-0" (click)="onSelected()">
   <div class="col-md-8">
     <div class="card-body">
-      <h5 class="card-title">{{ recipe.name }}</h5>
+      <h5 class="card-title">{{ index + 1 }}. {{ recipe.name }}</h5>
       <p class="card-text">{{ recipe.description }}</p>
     </div>
   </div>
   <div class="col-md-4">
-    <img [src]="recipe.imagePath" class="img-fluid rounded-end" alt="..." />
+    <img
+      [src]="recipe.imagePath"
+      class="img-fluid rounded-end"
+      alt="{{ recipe.name }}"
+    />
   </div>
 </a>
