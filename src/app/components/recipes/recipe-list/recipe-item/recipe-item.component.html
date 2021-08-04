@@ -1,4 +1,9 @@
-<a style="cursor: pointer" class="row g-0" [routerLink]="[index]">
+<a
+  style="cursor: pointer"
+  class="row g-0"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+>
   <div class="col-md-8">
     <div class="card-body">
       <h5 class="card-title">{{ index + 1 }}. {{ recipe.name }}</h5>
