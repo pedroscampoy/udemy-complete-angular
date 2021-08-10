@@ -15,6 +15,7 @@ import { DropdownDirective } from './components/shared/dropdown/dropdown.directi
 import { ClickStopPropagation } from './components/shared/directives/stop-propagation.directive';
 import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edi
     RecipeStartComponent,
     RecipeEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [ShoppingListService],
   bootstrap: [AppComponent],
 })
