@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Name:</label>
             <input
               type="text"
               id="name"
@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="imagePath">Image URL</label>
+            <label for="imagePath">Image URL:</label>
             <input
               type="text"
               id="imagePath"
@@ -41,7 +41,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
-            <label for="description">Description</label>
+            <label for="description">Description:</label>
             <textarea
               type="text"
               id="description"
@@ -53,16 +53,41 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="row">
-            <div class="col-xs-8">
-              <input type="text" class="form-control" />
+        <div
+          class="col-xs-12"
+          formArrayName="ingredients"
+          style="margin-top: 15px"
+        >
+          Ingredients:
+          <div
+            class="row"
+            *ngFor="let ingredientCtrl of controls; let i = index"
+            [formGroupName]="i"
+            style="margin-top: 10px"
+          >
+            <div class="w-50">
+              <input type="text" class="form-control" formControlName="name" />
             </div>
-            <div class="col-xs-2">
-              <input type="number" class="form-control" />
+            <div class="w-25 d-flex justify-content-center">
+              <input
+                type="number"
+                class="form-control"
+                formControlName="amount"
+              />
             </div>
-            <div class="col-xs-2">
+            <div class="w-25 d-flex justify-content-center">
               <button class="btn btn-danger">X</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="button"
+                class="btn btn-success"
+                (click)="onAddIngredient()"
+              >
+                Add Ingredient
+              </button>
             </div>
           </div>
         </div>
