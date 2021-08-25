@@ -1,3 +1,4 @@
+import { DataStorageService } from './../shared/data-storage.service';
 import { Subject } from 'rxjs';
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Injectable } from '@angular/core';
@@ -8,22 +9,28 @@ import { Recipe } from './recipe.model';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
-    new Recipe(
-      'Schnitzel',
-      'This is simply a test',
-      'https://live.staticflickr.com/65535/50263669281_6d44b1cabb_b.jpg',
-      [new Ingredient('Meat', 1), new Ingredient('Fries', 20)]
-    ),
-    new Recipe(
-      'Burger',
-      'This is simply a test',
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoU_Mhro3NBYPcgURUI2hBEYTJ6hGPf6TeRA&usqp=CAU',
-      [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
-    ),
-  ];
+  // private recipes: Recipe[] = [
+  //   new Recipe(
+  //     'Schnitzel',
+  //     'This is simply a test',
+  //     'https://live.staticflickr.com/65535/50263669281_6d44b1cabb_b.jpg',
+  //     [new Ingredient('Meat', 1), new Ingredient('Fries', 20)]
+  //   ),
+  //   new Recipe(
+  //     'Burger',
+  //     'This is simply a test',
+  //     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoU_Mhro3NBYPcgURUI2hBEYTJ6hGPf6TeRA&usqp=CAU',
+  //     [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
+  //   ),
+  // ];
+
+  private recipes: Recipe[] = [];
 
   constructor(private slService: ShoppingListService) {}
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
   getRecipes() {
     return this.recipes.slice();
